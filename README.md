@@ -4,4 +4,5 @@ Search for your favorite pokemon and view their abilities and other details. Thi
 [PokeAPI](https://pokeapi.co/).
 
 ## npm Libraries
+* react-router
 * axios
