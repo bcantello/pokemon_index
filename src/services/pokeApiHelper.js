@@ -11,3 +11,11 @@ export const getSelectedPokemon = async (pokemonId) => {
 		return e;
 	}
 };
+
+export const getPokemonByName = async (pokemonName) => {
+	try {
+		return await api.get(`pokemon/${pokemonName}`);
+	} catch (e) {
+		return e;
+	}
+};

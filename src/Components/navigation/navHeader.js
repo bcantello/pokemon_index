@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -8,6 +8,8 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import './navHeader.css';
+import {getPokemonByName} from "../../services/pokeApiHelper";
+import {AppContext} from "../../App";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -66,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchAppBar() {
 	const classes = useStyles();
+	const context = useContext(AppContext);
 	const [searchInput, setSearchInput] = useState({
 		pokemon: ''
 	});
@@ -75,7 +78,21 @@ export default function SearchAppBar() {
 		const {name, value} = e.target;
 		setSearchInput({...searchInput, [name]: value});
 	};
-	console.log(searchInput);
+
+	const handleSubmitSearch = e => {
+		e.preventDefault();
+		getPokemonByName(searchInput.pokemon.toLowerCase()).then(res => {
+			if (res.status === 200) {
+				console.log(res.data.id);
+				context.setPokemonId(res.data.id);
+			} else {
+				// document.getElementById('error-response')
+				// 	.innerHTML = "Invalid address. Please ensure all fields are filled out correctly"
+			}
+		}).catch(e => {
+			return e;
+		});
+	};
 
 	return (
 		<div className={classes.root}>
@@ -92,7 +109,7 @@ export default function SearchAppBar() {
 					<Typography className={classes.title} variant="h6" noWrap>
 						Who's That Pokedex!?
 					</Typography>
-					<div className={classes.search}>
+					<form className={classes.search} onSubmit={handleSubmitSearch}>
 						<div className={classes.searchIcon}>
 							<SearchIcon />
 						</div>
@@ -107,7 +124,7 @@ export default function SearchAppBar() {
 							value={searchInput.pokemon}
 							onChange={handleSearchChange}
 						/>
-					</div>
+					</form>
 				</Toolbar>
 			</AppBar>
 		</div>
