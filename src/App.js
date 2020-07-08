@@ -4,12 +4,12 @@ import {getSelectedPokemon} from "./services/pokeApiHelper";
 import Main from "./main";
 
 function App() {
-    let pokemonId = 25;
+    const [pokemonId, setPokemonId] = useState(25);
     const [pokemon, setPokemon] = useState(() => {
         const result = sessionStorage.getItem('allPokemon');
         return result ? JSON.parse(result) : {}
     });
-    console.log('POKEMON',pokemon)
+    // console.log('POKEMON',pokemon)
 
     // Get all pokemon from PokeAPI on initial page load and save to session storage
 
@@ -27,14 +27,35 @@ function App() {
             });
         };
         getPokemon();
-    }, []);
+    }, [pokemonId]);
+
+    const handleNextPokemonClick = () => {
+        if (pokemonId === 807) {
+            setPokemonId(1)
+        } else {
+            let newId = pokemonId + 1;
+            setPokemonId(newId);
+        }
+    }
+
+    const handlePreviousPokemonClick = () => {
+        if (pokemonId - 1 === 0) {
+            setPokemonId(807);
+        } else {
+            let newId = pokemonId - 1;
+            setPokemonId(newId);
+        }
+    }
 
     return (
         <div className="App">
             <AppContext.Provider value={
                 {
-                  pokemon,
-                  pokemonId
+                    pokemon,
+                    pokemonId,
+                    setPokemonId,
+                    handleNextPokemonClick,
+                    handlePreviousPokemonClick
                 }
             }>
                 <Main/>
