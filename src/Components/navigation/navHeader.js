@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -66,6 +66,16 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchAppBar() {
 	const classes = useStyles();
+	const [searchInput, setSearchInput] = useState({
+		pokemon: ''
+	});
+
+	// Collect user input from search field
+	const handleSearchChange = e => {
+		const {name, value} = e.target;
+		setSearchInput({...searchInput, [name]: value});
+	};
+	console.log(searchInput);
 
 	return (
 		<div className={classes.root}>
@@ -93,6 +103,9 @@ export default function SearchAppBar() {
 								input: classes.inputInput,
 							}}
 							inputProps={{ 'aria-label': 'search' }}
+							name={'pokemon'}
+							value={searchInput.pokemon}
+							onChange={handleSearchChange}
 						/>
 					</div>
 				</Toolbar>
