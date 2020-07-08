@@ -9,7 +9,7 @@ function App() {
         const result = sessionStorage.getItem('allPokemon');
         return result ? JSON.parse(result) : {}
     });
-    // console.log('POKEMON',pokemon)
+    console.log('POKEMON',pokemon)
 
     // Get all pokemon from PokeAPI on initial page load and save to session storage
 
