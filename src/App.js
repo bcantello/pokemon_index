@@ -2,6 +2,7 @@ import React, {createContext, useEffect, useState} from 'react';
 import './App.css';
 import {getSelectedPokemon} from "./services/pokeApiHelper";
 import Main from "./main";
+import SearchAppBar from "./Components/navigation/navHeader";
 
 function App() {
     const [pokemonId, setPokemonId] = useState(25);
@@ -49,6 +50,7 @@ function App() {
 
     return (
         <div className="App">
+            <SearchAppBar/>
             <AppContext.Provider value={
                 {
                     pokemon,
