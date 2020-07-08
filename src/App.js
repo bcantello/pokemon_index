@@ -9,13 +9,12 @@ function App() {
         const result = sessionStorage.getItem('allPokemon');
         return result ? JSON.parse(result) : {}
     });
-    console.log('POKEMON',pokemon)
+    // console.log('POKEMON',pokemon)
 
     // Get all pokemon from PokeAPI on initial page load and save to session storage
 
     useEffect(() => {
         const getPokemon = async () => {
-            console.log('LOOK HERE!',pokemonId);
             await getSelectedPokemon(pokemonId).then(res => {
                 if (res.status === 200) {
                     setPokemon(res.data);
@@ -31,13 +30,21 @@ function App() {
     }, [pokemonId]);
 
     const handleNextPokemonClick = () => {
-        let newId = pokemonId + 1;
-        setPokemonId(newId);
+        if (pokemonId === 807) {
+            setPokemonId(1)
+        } else {
+            let newId = pokemonId + 1;
+            setPokemonId(newId);
+        }
     }
 
     const handlePreviousPokemonClick = () => {
-        let newId = pokemonId - 1;
-        setPokemonId(newId);
+        if (pokemonId - 1 === 0) {
+            setPokemonId(807);
+        } else {
+            let newId = pokemonId - 1;
+            setPokemonId(newId);
+        }
     }
 
     return (
