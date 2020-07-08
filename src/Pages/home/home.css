@@ -12,11 +12,22 @@
     border-radius: 10px;
 }
 
+.name-hp-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .name {
     text-align: left;
     margin: 25px 0 5px 30px;
     font-size: 22px;
     font-weight: bold;
+}
+
+.hp {
+    text-align: left;
+    margin: 25px 30px 5px 0;
+    font-size: 22px;
 }
 
 .image-container {
@@ -46,8 +57,12 @@ img {
 }
 
 .card-stat {
-    font-size: 10px;
-    margin: 2px 3px;
+    font-size: 11px;
+    margin: 2px 2px;
+}
+
+.ability {
+    margin: 20px;
 }
 
 .card-nav-btn-container {
@@ -59,8 +74,11 @@ img {
 
 .card-nav-btn {
     width: 100px;
-    border: solid 2px blue;
+    border: solid 5px black;
     border-radius: 5px;
+    background-color: #E20612;
+    color: white;
+    font-weight: bold;
     padding: 3px;
 }
 
