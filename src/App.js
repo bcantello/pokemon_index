@@ -4,7 +4,7 @@ import {getSelectedPokemon} from "./services/pokeApiHelper";
 import Main from "./main";
 
 function App() {
-    let pokemonId = 25;
+    const [pokemonId, setPokemonId] = useState(25);
     const [pokemon, setPokemon] = useState(() => {
         const result = sessionStorage.getItem('allPokemon');
         return result ? JSON.parse(result) : {}
@@ -15,6 +15,7 @@ function App() {
 
     useEffect(() => {
         const getPokemon = async () => {
+            console.log('LOOK HERE!',pokemonId);
             await getSelectedPokemon(pokemonId).then(res => {
                 if (res.status === 200) {
                     setPokemon(res.data);
@@ -27,14 +28,27 @@ function App() {
             });
         };
         getPokemon();
-    }, []);
+    }, [pokemonId]);
+
+    const handleNextPokemonClick = () => {
+        let newId = pokemonId + 1;
+        setPokemonId(newId);
+    }
+
+    const handlePreviousPokemonClick = () => {
+        let newId = pokemonId - 1;
+        setPokemonId(newId);
+    }
 
     return (
         <div className="App">
             <AppContext.Provider value={
                 {
-                  pokemon,
-                  pokemonId
+                    pokemon,
+                    pokemonId,
+                    setPokemonId,
+                    handleNextPokemonClick,
+                    handlePreviousPokemonClick
                 }
             }>
                 <Main/>

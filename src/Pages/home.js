@@ -26,6 +26,8 @@ export default function Home() {
 			<div>Name: {name}</div>
 			<div>Weight: {weight} kg</div>
 			<div>Height: {height} m</div>
+			<div onClick={context.handleNextPokemonClick}>Increment</div>
+			<div onClick={context.handlePreviousPokemonClick}>Decrement</div>
 		</div>
 	);
 };
