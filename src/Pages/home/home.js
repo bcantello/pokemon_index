@@ -13,7 +13,7 @@ export default function Home() {
 	let name = '';
 	let type = '';
 	const abilityNum = [];
-	let abilityArr = this;
+	let abilityArr = [];
 
 	// Check for existence of HP stat in payload and set hp to value
 	if (pokemon.stats !== undefined) {
@@ -48,6 +48,7 @@ export default function Home() {
 		}
 	}
 
+	// Pass individual ability numbers to a AbilityListItem for api call and rendering
 	if (abilityNum.length !== 0) {
 		abilityArr = abilityNum.map((e, index) => {
 			return (

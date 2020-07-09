@@ -23,13 +23,11 @@ export default function AbilityListItem(props) {
 	}, [props.element]);
 
 	if (abilityDetails !== undefined) {
-		name = abilityDetails.data.name
+		name = abilityDetails.data.name;
 		if (abilityDetails.data.effect_entries[1] !== undefined) {
 			description = abilityDetails.data.effect_entries[1].short_effect;
 		}
 	}
-
-
 
 	return (
 		<div className={'abilities-container'}>
