@@ -11,10 +11,8 @@ function App() {
         return result ? JSON.parse(result) : {}
     });
     console.log('POKEMON',pokemon)
-    console.log('ID FROM APP',pokemonId)
 
     // Get all pokemon from PokeAPI on initial page load and save to session storage
-
     useEffect(() => {
         const getPokemon = async () => {
             await getSelectedPokemon(pokemonId).then(res => {

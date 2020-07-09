@@ -85,9 +85,9 @@ export default function SearchAppBar() {
 			if (res.status === 200) {
 				console.log(res.data.id);
 				context.setPokemonId(res.data.id);
+				document.getElementById('error-response').innerHTML = "";
 			} else {
-				// document.getElementById('error-response')
-				// 	.innerHTML = "Invalid address. Please ensure all fields are filled out correctly"
+				document.getElementById('error-response').innerHTML = "Invalid Pokemon name";
 			}
 		}).catch(e => {
 			return e;
@@ -109,22 +109,26 @@ export default function SearchAppBar() {
 					<Typography className={classes.title} variant="h6" noWrap>
 						Who's That Pokedex!?
 					</Typography>
-					<form className={classes.search} onSubmit={handleSubmitSearch}>
-						<div className={classes.searchIcon}>
-							<SearchIcon />
-						</div>
-						<InputBase
-							placeholder="Search…"
-							classes={{
-								root: classes.inputRoot,
-								input: classes.inputInput,
-							}}
-							inputProps={{ 'aria-label': 'search' }}
-							name={'pokemon'}
-							value={searchInput.pokemon}
-							onChange={handleSearchChange}
-						/>
-					</form>
+					<div>
+						<form className={classes.search} onSubmit={handleSubmitSearch}>
+							<div className={classes.searchIcon}>
+								<SearchIcon />
+							</div>
+							<InputBase
+								id={'search-input'}
+								placeholder="Search…"
+								classes={{
+									root: classes.inputRoot,
+									input: classes.inputInput,
+								}}
+								inputProps={{ 'aria-label': 'search' }}
+								name={'pokemon'}
+								value={searchInput.pokemon}
+								onChange={handleSearchChange}
+							/>
+						</form>
+						<div id={'error-response'}></div>
+					</div>
 				</Toolbar>
 			</AppBar>
 		</div>
