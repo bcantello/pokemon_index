@@ -5,4 +5,10 @@ Search for your favorite pokemon and view their abilities and other details. Thi
 
 ## npm Libraries
 * react-router
+* @material-ui/core
+* @material-ui/icons
 * axios
+
+## Additional Libraries
+* Roboto Font
+* Material Icons Font
