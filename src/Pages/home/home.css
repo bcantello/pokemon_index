@@ -75,11 +75,13 @@ img {
 
 .card-nav-btn {
     width: 100px;
-    border: solid 5px black;
+    border: solid 3px black;
     border-radius: 5px;
-    background-color: #E20612;
-    color: white;
+    background-color: #EF5350;
+    text-shadow: -2px -2px 0 #3F5D9F, 2px -2px 0 #3F5D9F, -2px 2px 0 #3F5D9F, 2px 2px 0 #3F5D9F;
+    color: #FAC71E;
     font-weight: bold;
+    font-size: 18px;
     padding: 3px;
 }
 
