@@ -1,6 +1,7 @@
 import React, {useContext} from "react";
 import {AppContext} from "../../App";
 import './home.css';
+import AbilityListItem from "../../Components/abilityParser/abilityListItem";
 
 export default function Home() {
 	const context = useContext(AppContext);
@@ -11,7 +12,8 @@ export default function Home() {
 	let spriteUrl = '';
 	let name = '';
 	let type = '';
-	const abilities = [];
+	const abilityNum = [];
+	let abilityArr = this;
 
 	// Check for existence of HP stat in payload and set hp to value
 	if (pokemon.stats !== undefined) {
@@ -37,11 +39,21 @@ export default function Home() {
 		type = typeArr.join('');
 	}
 
-	// Check for existence of abilities in payload and push to abilities array
+	// Check for existence of abilities in payload and push to abilityNum
 	if (pokemon.abilities !== undefined) {
 		for (let i = 0; i < pokemon.abilities.length; i++) {
-			abilities.push(<div className={'ability'}>{pokemon.abilities[i].ability.name}</div>);
+			// split ability url to find ability number
+			const tempArr = pokemon.abilities[i].ability.url.split('/');
+			abilityNum.push(tempArr[tempArr.length - 2]);
 		}
+	}
+
+	if (abilityNum.length !== 0) {
+		abilityArr = abilityNum.map((e, index) => {
+			return (
+				<AbilityListItem element={e} key={index}/>
+			);
+		});
 	}
 
 	return (
@@ -60,7 +72,7 @@ export default function Home() {
 					<div className={'card-stat'}>HT: {height} m</div>
 					<div className={'card-stat'}>WT: {weight} kg</div>
 				</div>
-				<div className={'abilities'}>{abilities}</div>
+				<div className={'abilities'}>{abilityArr}</div>
 			</div>
 			<div className={'card-nav-btn-container'}>
 				<div className={'card-nav-btn'} onClick={context.handlePreviousPokemonClick}>Previous Pokemon</div>

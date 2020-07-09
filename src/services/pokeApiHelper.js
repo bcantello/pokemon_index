@@ -19,3 +19,11 @@ export const getPokemonByName = async (pokemonName) => {
 		return e;
 	}
 };
+
+export const getPokemonAbilityDetails = async (abilityNumber) => {
+	try {
+		return await api.get(`ability/${abilityNumber}`);
+	} catch (e) {
+		return e;
+	}
+};
