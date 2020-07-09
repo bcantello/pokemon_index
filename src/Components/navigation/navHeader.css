@@ -1,0 +1,20 @@
+.MuiAppBar-colorPrimary {
+    background-color: #EF5350 !important;
+}
+
+.makeStyles-search-4 {
+    background-color: rgba(58, 146, 217, 0.97) !important;
+}
+
+#error-response {
+    font-size: 11px;
+}
+
+.MuiTypography-h6 {
+    text-align: left;
+    font-size: 35px !important;
+    text-shadow: -2px -2px 0 #3F5D9F, 2px -2px 0 #3F5D9F, -2px 2px 0 #3F5D9F, 2px 2px 0 #3F5D9F;
+    color: #FAC71E;
+    font-style: italic;
+    font-weight: bold;
+}

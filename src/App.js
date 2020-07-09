@@ -2,23 +2,23 @@ import React, {createContext, useEffect, useState} from 'react';
 import './App.css';
 import {getSelectedPokemon} from "./services/pokeApiHelper";
 import Main from "./main";
+import SearchAppBar from "./Components/navigation/navHeader";
 
 function App() {
     const [pokemonId, setPokemonId] = useState(25);
     const [pokemon, setPokemon] = useState(() => {
-        const result = sessionStorage.getItem('allPokemon');
+        const result = sessionStorage.getItem('pokemon');
         return result ? JSON.parse(result) : {}
     });
     console.log('POKEMON',pokemon)
 
     // Get all pokemon from PokeAPI on initial page load and save to session storage
-
     useEffect(() => {
         const getPokemon = async () => {
             await getSelectedPokemon(pokemonId).then(res => {
                 if (res.status === 200) {
                     setPokemon(res.data);
-                    sessionStorage.setItem('allPokemon', JSON.stringify(res));
+                    sessionStorage.setItem('pokemon', JSON.stringify(res));
                 } else {
                     console.log(`Error retrieving data from PokeAPI. Response code ${res.status}`);
                 }
@@ -58,6 +58,7 @@ function App() {
                     handlePreviousPokemonClick
                 }
             }>
+                <SearchAppBar/>
                 <Main/>
             </AppContext.Provider>
         </div>
