@@ -83,7 +83,6 @@ export default function SearchAppBar() {
 		e.preventDefault();
 		getPokemonByName(searchInput.pokemon.toLowerCase()).then(res => {
 			if (res.status === 200) {
-				console.log(res.data.id);
 				context.setPokemonId(res.data.id);
 				document.getElementById('error-response').innerHTML = "";
 			} else {

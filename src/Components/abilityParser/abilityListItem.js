@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {getPokemonAbilityDetails} from "../../services/pokeApiHelper";
+import './abilityListItem.css';
 
 export default function AbilityListItem(props) {
 	const [abilityDetails, setAbilityDetails] = useState();
@@ -19,12 +20,16 @@ export default function AbilityListItem(props) {
 			});
 		};
 		getAbilities(props.element);
-	}, []);
+	}, [props.element]);
 
 	if (abilityDetails !== undefined) {
 		name = abilityDetails.data.name
-		description = abilityDetails.data.effect_entries[1].short_effect;
+		if (abilityDetails.data.effect_entries[1] !== undefined) {
+			description = abilityDetails.data.effect_entries[1].short_effect;
+		}
 	}
+
+
 
 	return (
 		<div className={'abilities-container'}>

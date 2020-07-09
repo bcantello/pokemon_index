@@ -61,11 +61,6 @@ img {
     margin: 2px 2px;
 }
 
-.ability {
-    margin: 20px;
-    font-weight: bold;
-}
-
 .card-nav-btn-container {
     display: flex;
     justify-content: space-evenly;
@@ -87,4 +82,5 @@ img {
 
 .card-nav-btn:hover {
     cursor: pointer;
+    background-color: red;
 }
