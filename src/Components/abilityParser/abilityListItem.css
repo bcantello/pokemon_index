@@ -1,0 +1,9 @@
+.ability-name {
+    margin: 10px 0 5px 0;
+    font-weight: bold;
+}
+
+.ability-description {
+    font-size: 12px;
+    margin: 0 5px;
+}

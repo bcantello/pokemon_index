@@ -10,7 +10,6 @@ function App() {
         const result = sessionStorage.getItem('pokemon');
         return result ? JSON.parse(result) : {}
     });
-    console.log('POKEMON',pokemon)
 
     // Get pokemon from PokeAPI on initial page load and save to session storage
     useEffect(() => {
@@ -30,7 +29,7 @@ function App() {
     }, [pokemonId]);
 
     const handleNextPokemonClick = () => {
-        if (pokemonId === 807) {
+        if (pokemonId === 150) {
             setPokemonId(1)
         } else {
             let newId = pokemonId + 1;
@@ -40,7 +39,7 @@ function App() {
 
     const handlePreviousPokemonClick = () => {
         if (pokemonId - 1 === 0) {
-            setPokemonId(807);
+            setPokemonId(150);
         } else {
             let newId = pokemonId - 1;
             setPokemonId(newId);
