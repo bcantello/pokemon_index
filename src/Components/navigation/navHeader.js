@@ -9,7 +9,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import './navHeader.css';
 import {getPokemonByName} from "../../services/pokeApiHelper";
 import {AppContext} from "../../App";
-import AutoCompleteSearch from "../autoCompleteSearch";
+import AutoCompleteSearch from "./autoCompleteSearch";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
