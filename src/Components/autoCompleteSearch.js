@@ -28,7 +28,7 @@ export default function AutoCompleteSearch(props) {
 			onInputChange={(event, newInputValue) => {
 				props.setInputValue(newInputValue);
 			}}
-			id="country-select-demo"
+			id="pokemon-select"
 			style={{ width: 300 }}
 			options={pokemon}
 			classes={{

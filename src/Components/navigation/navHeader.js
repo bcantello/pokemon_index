@@ -103,14 +103,14 @@ export default function SearchAppBar() {
 		<div className={classes.root}>
 			<AppBar position="fixed">
 				<Toolbar>
-					<IconButton
-						edge="start"
-						className={classes.menuButton}
-						color="inherit"
-						aria-label="open drawer"
-					>
-						<MenuIcon />
-					</IconButton>
+					{/*<IconButton*/}
+					{/*	edge="start"*/}
+					{/*	className={classes.menuButton}*/}
+					{/*	color="inherit"*/}
+					{/*	aria-label="open drawer"*/}
+					{/*>*/}
+					{/*	<MenuIcon />*/}
+					{/*</IconButton>*/}
 					<Typography className={classes.title} variant="h6" noWrap>
 						Who's That Pokedex!?
 					</Typography>
