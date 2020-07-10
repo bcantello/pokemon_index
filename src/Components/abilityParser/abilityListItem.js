@@ -7,6 +7,7 @@ export default function AbilityListItem(props) {
 	let name = '';
 	let description = '';
 
+	// Get ability details from api based on ability number from current pokemon
 	useEffect(() => {
 		const getAbilities = async (abilityNumber) => {
 			await getPokemonAbilityDetails(abilityNumber).then(res => {
@@ -22,8 +23,12 @@ export default function AbilityListItem(props) {
 		getAbilities(props.element);
 	}, [props.element]);
 
+	// Check for existence of abilities. Capitalize ability name and grab english description
 	if (abilityDetails !== undefined) {
-		name = abilityDetails.data.name;
+		let nameArr = abilityDetails.data.name.split('');
+		nameArr[0] = nameArr[0].toUpperCase();
+		name = nameArr.join('');
+
 		if (abilityDetails.data.effect_entries[1] !== undefined) {
 			description = abilityDetails.data.effect_entries[1].short_effect;
 		}
