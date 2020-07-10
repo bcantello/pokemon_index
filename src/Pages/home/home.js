@@ -62,10 +62,6 @@ export default function Home() {
 
 	return (
 		<div className={'card-container'}>
-			<div className={'card-nav-btn-container'}>
-				<div className={'card-nav-btn'} onClick={context.handlePreviousPokemonClick}>Previous Pokemon</div>
-				<div className={'card-nav-btn'} onClick={context.handleNextPokemonClick}>Next Pokemon</div>
-			</div>
 			<div className={'card'}>
 				<div className={'name-hp-container'}>
 					<div className={'name'}>{name}</div>
@@ -81,6 +77,10 @@ export default function Home() {
 					<div className={'card-stat'}>WT: {weight} kg</div>
 				</div>
 				<div className={'abilities'}>{abilityArr}</div>
+			</div>
+			<div className={'card-nav-btn-container'}>
+				<div className={'card-nav-btn'} onClick={context.handlePreviousPokemonClick}>Previous Pokemon</div>
+				<div className={'card-nav-btn'} onClick={context.handleNextPokemonClick}>Next Pokemon</div>
 			</div>
 		</div>
 	);
