@@ -1,16 +1,21 @@
 .card-container {
-    margin: 85px auto;
+    margin: 85px auto 0 auto;
 }
 
 .card {
     width: 350px;
     height: 500px;
-    margin: 0 auto 50px auto;
+    margin: 30px auto 50px auto;
     background-image: url("https://res.cloudinary.com/bcantello/image/upload/v1594237741/pokemon-background-texture_fp5kcf.png");
     background-size: cover;
     border: solid 10px rgba(248, 208, 99, 0.95);
-    box-shadow: 20px 25px 13px -20px rgba(0,0,0,0.95);
     border-radius: 10px;
+    -webkit-transition: width .5s ease, height .5s ease, box-shadow .5s;
+}
+
+.card:hover {
+    box-shadow: 25px 25px 13px -20px rgba(0,0,0,0.95);
+    -webkit-transition: box-shadow .5s;
 }
 
 .name-hp-container {
@@ -21,7 +26,7 @@
 .name {
     text-align: left;
     margin: 25px 0 5px 30px;
-    font-size: 22px;
+    font-size: 1.375em;
     font-weight: bold;
 }
 
