@@ -95,7 +95,7 @@ export default function SearchAppBar() {
 
 	return (
 		<div className={classes.root}>
-			<AppBar position="static">
+			<AppBar position="fixed">
 				<Toolbar>
 					<IconButton
 						edge="start"
@@ -108,7 +108,7 @@ export default function SearchAppBar() {
 					<Typography className={classes.title} variant="h6" noWrap>
 						Who's That Pokedex!?
 					</Typography>
-					<div>
+					<div id={'search-container'}>
 						<form className={classes.search} onSubmit={handleSubmitSearch}>
 							<div className={classes.searchIcon}>
 								<SearchIcon />
