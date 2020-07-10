@@ -28,6 +28,7 @@ function App() {
         getPokemon();
     }, [pokemonId]);
 
+    // increment pokemon id, up to 151. loop back to 1 if at 151
     const handleNextPokemonClick = () => {
         if (pokemonId === 151) {
             setPokemonId(1)
@@ -37,6 +38,7 @@ function App() {
         }
     }
 
+    // decrement pokemon id, down to 1. loop back to 151 if at 1
     const handlePreviousPokemonClick = () => {
         if (pokemonId - 1 === 0) {
             setPokemonId(151);
