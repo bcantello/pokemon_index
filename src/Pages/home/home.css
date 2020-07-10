@@ -1,5 +1,5 @@
 .card-container {
-    margin: 85px auto 0 auto;
+    margin: 155px auto 0 auto;
 }
 
 .card {
@@ -84,9 +84,64 @@ img {
     font-weight: bold;
     font-size: 18px;
     padding: 3px;
+    margin-bottom: 20px;
 }
 
 .card-nav-btn:hover {
     cursor: pointer;
     background-color: red;
+}
+
+/*mobile styling*/
+@media (max-width: 600px) {
+    .card-container {
+        margin: 75px auto 0 auto;
+    }
+
+    .card {
+        width: 315px;
+        height: 450px;
+        margin: 27px auto 45px auto;
+        border: solid 9px rgba(248, 208, 99, 0.95);
+        box-shadow: 25px 25px 13px -20px rgba(0,0,0,0.95);
+        -webkit-transition: none;
+    }
+
+    .card:hover {
+        -webkit-transition: none;
+    }
+
+    .name {
+        margin: 22px 0 5px 27px;
+        font-size: 1.237em;
+    }
+
+    .hp {
+        margin: 22px 27px 5px 0;
+        font-size: 1.237em;
+    }
+
+    .image-container {
+        width: 261px;
+        height: 180px;
+        box-shadow: inset 6px 6px 6px 2px rgba(239, 193, 70, 0.95),
+        inset -6px -6px 6px 2px rgba(239, 193, 70, 0.95),
+        0 4px 6px 0 rgba(26, 26, 26, 0.45),
+        0 -4px 6px 0 rgba(26, 26, 26, 0.25);
+    }
+
+    img {
+        height: 171px;
+        margin-top: 5px;
+    }
+
+    .stats-container {
+        width: 243px;
+        margin: 8px auto;
+    }
+
+    .card-stat {
+        font-size: 10px;
+        margin: 2px 2px;
+    }
 }

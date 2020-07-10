@@ -29,7 +29,7 @@ function App() {
     }, [pokemonId]);
 
     const handleNextPokemonClick = () => {
-        if (pokemonId === 150) {
+        if (pokemonId === 151) {
             setPokemonId(1)
         } else {
             let newId = pokemonId + 1;
@@ -39,7 +39,7 @@ function App() {
 
     const handlePreviousPokemonClick = () => {
         if (pokemonId - 1 === 0) {
-            setPokemonId(150);
+            setPokemonId(151);
         } else {
             let newId = pokemonId - 1;
             setPokemonId(newId);

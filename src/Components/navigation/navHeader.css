@@ -18,3 +18,7 @@
     font-style: italic;
     font-weight: bold;
 }
+
+#search-container {
+    margin-left: 100px;
+}
