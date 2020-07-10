@@ -10,9 +10,6 @@ function App() {
         const result = sessionStorage.getItem('pokemon');
         return result ? JSON.parse(result) : {}
     });
-    // const options = ['Option 1', 'Option 2'];
-    // const [value, setValue] = useState(options[0]);
-    // const [inputValue, setInputValue] = useState('');
 
     // Get pokemon from PokeAPI on initial page load and save to session storage
     useEffect(() => {
@@ -60,11 +57,6 @@ function App() {
                     setPokemonId,
                     handleNextPokemonClick,
                     handlePreviousPokemonClick,
-                    // value,
-                    // setValue,
-                    // inputValue,
-                    // setInputValue,
-                    // options
                 }
             }>
                 <SearchAppBar/>
