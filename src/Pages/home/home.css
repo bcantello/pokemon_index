@@ -1,18 +1,18 @@
 .card-container {
-    margin: 85px auto;
+    margin: 85px auto 0 auto;
 }
 
 .card {
     width: 350px;
     height: 500px;
-    margin: 0 auto 50px auto;
+    margin: 30px auto 0 auto;
     background-image: url("https://res.cloudinary.com/bcantello/image/upload/v1594237741/pokemon-background-texture_fp5kcf.png");
     background-size: cover;
     border: solid 10px rgba(248, 208, 99, 0.95);
     box-shadow: 20px 25px 13px -20px rgba(0,0,0,0.95);
     border-radius: 10px;
 
-    -webkit-transition: width 1.5s ease, height 1.5s ease, box-shadow 1.5s;
+    -webkit-transition: width 1s ease, height 1s ease, box-shadow 1s;
 }
 
 .card:hover {
@@ -33,7 +33,7 @@
     font-size: 22px;
     font-weight: bold;
 
-    -webkit-transition: margin 1.5s ease, font-size 1.5s ease;
+    -webkit-transition: margin 1s ease, font-size 1s ease;
 }
 
 .card:hover > .name-hp-container > .name {
@@ -48,7 +48,7 @@
     margin: 25px 30px 5px 0;
     font-size: 22px;
 
-    -webkit-transition: margin 1.5s ease, font-size 1.5s ease;
+    -webkit-transition: margin 1s ease, font-size 1s ease;
 }
 
 .card:hover > .name-hp-container > .hp {
@@ -69,7 +69,7 @@
         0 4px 6px 0 rgba(26, 26, 26, 0.45),
         0 -4px 6px 0 rgba(26, 26, 26, 0.25);
 
-    -webkit-transition: width 1.5s ease, height 1.5s ease;
+    -webkit-transition: width 1s ease, height 1s ease;
 }
 
 .card:hover > .image-container {
@@ -83,7 +83,7 @@ img {
     height: 190px;
     margin-top: 5px;
 
-    -webkit-transition: height 1.5s ease, margin-top 1.5s ease;
+    -webkit-transition: height 1s ease, margin-top 1s ease;
 }
 
 .card:hover > .image-container > img {
@@ -101,7 +101,7 @@ img {
     background-color: rgba(239, 193, 70, 0.85);
     border-radius: 5px;
 
-    -webkit-transition: width 1.5s ease, margin 1.5s ease;
+    -webkit-transition: width 1s ease, margin 1s ease;
 }
 
 .card:hover > .stats-container {
@@ -115,7 +115,7 @@ img {
     font-size: 11px;
     margin: 2px 2px;
 
-    -webkit-transition: font-size 1.5s ease;
+    -webkit-transition: font-size 1s ease;
 }
 
 .card:hover > .stats-container > .card-stat {
@@ -123,35 +123,6 @@ img {
 
     -webkit-transition: font-size 1.5s ease;
 }
-
-/*.ability-name {*/
-/*    margin: 10px 0 5px 0;*/
-/*    font-weight: bold;*/
-
-/*    -webkit-transition: margin 1.5s ease, font-size 1.5s ease;*/
-/*}*/
-
-/*.card:hover > .abilities > .abilities-container > .ability-name {*/
-/*    margin: 12px 0 6px 0;*/
-/*    font-size: 18px;*/
-
-/*    -webkit-transition: margin 1.5s ease, font-size 1.5s ease;*/
-/*}*/
-
-/*.ability-description {*/
-/*    font-size: 12px;*/
-/*    margin: 0 15px;*/
-/*    text-align: left;*/
-
-/*    -webkit-transition: font-size 1.5s ease, margin 1.5s ease;*/
-/*}*/
-
-/*.card:hover > .abilities > .abilities-container > .ability-description {*/
-/*    font-size: 14px;*/
-/*    margin: 0 18px;*/
-
-/*    -webkit-transition: font-size 1.5s ease, margin 1.5s ease;*/
-/*}*/
 
 .card-nav-btn-container {
     display: flex;

@@ -2,7 +2,7 @@
     margin: 10px 0 5px 0;
     font-weight: bold;
 
-    -webkit-transition: margin 1.5s ease, font-size 1.5s ease;
+    -webkit-transition: margin 1s ease, font-size 1s ease;
 }
 
 .card:hover > .abilities > .abilities-container > .ability-name {
@@ -17,7 +17,7 @@
     margin: 0 15px;
     text-align: left;
 
-    -webkit-transition: font-size 1.5s ease, margin 1.5s ease;
+    -webkit-transition: font-size 1s ease, margin 1s ease;
 }
 
 .card:hover > .abilities > .abilities-container > .ability-description {
