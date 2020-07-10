@@ -1,9 +1,28 @@
 .ability-name {
     margin: 10px 0 5px 0;
     font-weight: bold;
+
+    -webkit-transition: margin 1.5s ease, font-size 1.5s ease;
+}
+
+.card:hover > .abilities > .abilities-container > .ability-name {
+    margin: 12px 0 6px 0;
+    font-size: 18px;
+
+    -webkit-transition: margin 1.5s ease, font-size 1.5s ease;
 }
 
 .ability-description {
-    font-size: 12px;
-    margin: 0 5px;
+    font-size: .75em;
+    margin: 0 15px;
+    text-align: left;
+
+    -webkit-transition: font-size 1.5s ease, margin 1.5s ease;
+}
+
+.card:hover > .abilities > .abilities-container > .ability-description {
+    font-size: .9em;
+    margin: 0 18px;
+
+    -webkit-transition: font-size 1.5s ease, margin 1.5s ease;
 }

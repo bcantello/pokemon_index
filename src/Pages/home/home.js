@@ -57,6 +57,9 @@ export default function Home() {
 		});
 	}
 
+	// Use arrow keys to change pokemon
+
+
 	return (
 		<div className={'card-container'}>
 			<div className={'card'}>

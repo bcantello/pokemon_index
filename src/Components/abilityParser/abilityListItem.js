@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {getPokemonAbilityDetails} from "../../services/pokeApiHelper";
 import './abilityListItem.css';
+// import '../../Pages/home/home.css';
 
 export default function AbilityListItem(props) {
 	const [abilityDetails, setAbilityDetails] = useState();
