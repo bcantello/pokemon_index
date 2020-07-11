@@ -40,3 +40,9 @@ label {
     margin-left: 30px;
     padding-top: 13px;
 }
+
+@media (max-width: 600px) {
+    #search-container {
+        margin: 0 auto;
+    }
+}

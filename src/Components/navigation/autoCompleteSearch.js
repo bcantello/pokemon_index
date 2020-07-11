@@ -32,7 +32,7 @@ export default function AutoCompleteSearch(props) {
 				props.setInputValue(newInputValue);
 			}}
 			id="pokemon-select"
-			style={{ width: 300 }}
+			style={{width: 300}}
 			options={pokemon}
 			classes={{
 				option: classes.option,

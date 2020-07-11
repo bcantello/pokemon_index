@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -65,31 +65,28 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function SearchAppBar() {
+export default function SearchAppBar(props) {
 	const classes = useStyles();
 	const context = useContext(AppContext);
-	const options = ['Option 1', 'Option 2'];
-	const [value, setValue] = useState(options[0]);
-	const [inputValue, setInputValue] = useState('');
 
 	// search pokemon by name input through search bar
 	useEffect(() => {
 		const autoSearchOnMatchingName = () => {
 			// api GET with input selected from dropdown
-			if (pokemon.some(element => element.label === inputValue)) {
-				getPokemonByName(inputValue).then(res => {
+			if (pokemon.some(element => element.label === context.inputValue)) {
+				getPokemonByName(context.inputValue).then(res => {
 					if (res.status === 200) {
-						context.setPokemonId(res.data.id);
+						props.setPokemonId(res.data.id);
 					}
 				}).catch(e => {
 					return e;
 				});
 			} else {
 				// api GET with pokemon 100% user entered
-				if (pokemon.some(element => element.label === value)) {
-					getPokemonByName(value).then(res => {
+				if (pokemon.some(element => element.label === context.value)) {
+					getPokemonByName(context.value).then(res => {
 						if (res.status === 200) {
-							context.setPokemonId(res.data.id);
+							props.setPokemonId(res.data.id);
 						}
 					}).catch(e => {
 						return e;
@@ -98,7 +95,7 @@ export default function SearchAppBar() {
 			}
 		};
 		autoSearchOnMatchingName();
-	}, [value, inputValue]);
+	}, [context.value, context.inputValue, props]);
 
 	return (
 		<div className={classes.root}>
@@ -110,9 +107,14 @@ export default function SearchAppBar() {
 					<div id={'search-container'}>
 						<form className={classes.search}>
 							<div className={classes.searchIcon}>
-								<SearchIcon />
+								<SearchIcon/>
 							</div>
-							<AutoCompleteSearch setValue={setValue} setInputValue={setInputValue} pokemon={pokemon}/>
+							<AutoCompleteSearch
+								setValue={context.setValue}
+								setInputValue={context.setInputValue}
+								pokemon={pokemon}
+								inputValue={context.inputValue}
+							/>
 						</form>
 					</div>
 				</Toolbar>
