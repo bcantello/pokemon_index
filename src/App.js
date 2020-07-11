@@ -10,9 +10,6 @@ function App() {
         const result = sessionStorage.getItem('pokemon');
         return result ? JSON.parse(result) : {}
     });
-    const options = ['Option 1', 'Option 2'];
-    const [value, setValue] = useState(options[0]);
-    const [inputValue, setInputValue] = useState('');
 
     // Get pokemon from PokeAPI on initial page load and save to session storage
     useEffect(() => {
@@ -33,11 +30,9 @@ function App() {
     const handleNextPokemonClick = () => {
         if (pokemonId === 151) {
             setPokemonId(1);
-            setInputValue('');
         } else {
             let newId = pokemonId + 1;
             setPokemonId(newId);
-            setInputValue('');
         }
     };
 
@@ -45,11 +40,9 @@ function App() {
     const handlePreviousPokemonClick = () => {
         if (pokemonId - 1 === 0) {
             setPokemonId(151);
-            setInputValue('');
         } else {
             let newId = pokemonId - 1;
             setPokemonId(newId);
-            setInputValue('');
         }
     };
 
@@ -62,10 +55,6 @@ function App() {
                     setPokemonId,
                     handleNextPokemonClick,
                     handlePreviousPokemonClick,
-                    inputValue,
-                    setInputValue,
-                    value,
-                    setValue
                 }
             }>
                 <SearchAppBar setPokemonId={setPokemonId}/>

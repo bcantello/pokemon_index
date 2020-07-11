@@ -1,11 +1,10 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import {getPokemonByName} from "../../services/pokeApiHelper";
-import {AppContext} from "../../App";
 import AutoCompleteSearch from "./autoCompleteSearch";
 import pokemon from '../../searchListData';
 import './navHeader.css';
@@ -67,35 +66,23 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchAppBar(props) {
 	const classes = useStyles();
-	const context = useContext(AppContext);
+	const [inputValue, setInputValue] = useState('');
 
 	// search pokemon by name input through search bar
 	useEffect(() => {
 		const autoSearchOnMatchingName = () => {
-			// api GET with input selected from dropdown
-			if (pokemon.some(element => element.label === context.inputValue)) {
-				getPokemonByName(context.inputValue).then(res => {
+			if (pokemon.some(element => element.label === inputValue)) {
+				getPokemonByName(inputValue).then(res => {
 					if (res.status === 200) {
 						props.setPokemonId(res.data.id);
 					}
 				}).catch(e => {
 					return e;
 				});
-			} else {
-				// api GET with pokemon 100% user entered
-				if (pokemon.some(element => element.label === context.value)) {
-					getPokemonByName(context.value).then(res => {
-						if (res.status === 200) {
-							props.setPokemonId(res.data.id);
-						}
-					}).catch(e => {
-						return e;
-					});
-				}
 			}
 		};
 		autoSearchOnMatchingName();
-	}, [context.value, context.inputValue, props]);
+	}, [inputValue, props]);
 
 	return (
 		<div className={classes.root}>
@@ -110,10 +97,9 @@ export default function SearchAppBar(props) {
 								<SearchIcon/>
 							</div>
 							<AutoCompleteSearch
-								setValue={context.setValue}
-								setInputValue={context.setInputValue}
+								setInputValue={setInputValue}
 								pokemon={pokemon}
-								inputValue={context.inputValue}
+								inputValue={inputValue}
 							/>
 						</form>
 					</div>

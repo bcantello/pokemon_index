@@ -21,10 +21,9 @@ export default function AutoCompleteSearch(props) {
 
 	return (
 		<Autocomplete
-			// handle search user input
-			value={props.value}
-			onChange={(event, newValue) => {
-				props.setValue(newValue);
+			// reset search field upon clicking out
+			onBlur={() => {
+				props.setInputValue('');
 			}}
 			// handle search drop down select
 			inputValue={props.inputValue}
