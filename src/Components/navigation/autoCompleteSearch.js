@@ -21,10 +21,12 @@ export default function AutoCompleteSearch(props) {
 
 	return (
 		<Autocomplete
+			// handle search user input
 			value={props.value}
 			onChange={(event, newValue) => {
 				props.setValue(newValue);
 			}}
+			// handle search drop down select
 			inputValue={props.inputValue}
 			onInputChange={(event, newInputValue) => {
 				props.setInputValue(newInputValue);

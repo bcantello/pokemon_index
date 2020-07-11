@@ -4,11 +4,11 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
-import './navHeader.css';
 import {getPokemonByName} from "../../services/pokeApiHelper";
 import {AppContext} from "../../App";
 import AutoCompleteSearch from "./autoCompleteSearch";
 import pokemon from '../../searchListData';
+import './navHeader.css';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -75,6 +75,7 @@ export default function SearchAppBar() {
 	// search pokemon by name input through search bar
 	useEffect(() => {
 		const autoSearchOnMatchingName = () => {
+			// api GET with input selected from dropdown
 			if (pokemon.some(element => element.label === inputValue)) {
 				getPokemonByName(inputValue).then(res => {
 					if (res.status === 200) {

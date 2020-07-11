@@ -13,8 +13,6 @@ export default function AbilityListItem(props) {
 			await getPokemonAbilityDetails(abilityNumber).then(res => {
 				if (res.status === 200) {
 					setAbilityDetails(res);
-				} else {
-					console.log(`Error retrieving data from PokeAPI. Response code ${res.status}`);
 				}
 			}).catch(e => {
 				console.log(e);
