@@ -31,12 +31,12 @@ function App() {
     // increment pokemon id, up to 151. loop back to 1 if at 151
     const handleNextPokemonClick = () => {
         if (pokemonId === 151) {
-            setPokemonId(1)
+            setPokemonId(1);
         } else {
             let newId = pokemonId + 1;
             setPokemonId(newId);
         }
-    }
+    };
 
     // decrement pokemon id, down to 1. loop back to 151 if at 1
     const handlePreviousPokemonClick = () => {
@@ -46,7 +46,7 @@ function App() {
             let newId = pokemonId - 1;
             setPokemonId(newId);
         }
-    }
+    };
 
     return (
         <div className="App">
@@ -56,7 +56,7 @@ function App() {
                     pokemonId,
                     setPokemonId,
                     handleNextPokemonClick,
-                    handlePreviousPokemonClick
+                    handlePreviousPokemonClick,
                 }
             }>
                 <SearchAppBar/>

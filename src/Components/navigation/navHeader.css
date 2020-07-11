@@ -22,3 +22,20 @@
 #search-container {
     margin-left: 100px;
 }
+
+.MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] {
+    padding: 5px !important;
+}
+
+label {
+    margin-left: 30px;
+}
+
+.MuiInputLabel-shrink {
+    margin: 6px 0 0 0;
+}
+
+#pokemon-select {
+    margin-left: 30px;
+    padding-top: 13px;
+}

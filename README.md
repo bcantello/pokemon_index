@@ -7,6 +7,7 @@ Search for your favorite pokemon and view their abilities and other details. Thi
 * react-router
 * @material-ui/core
 * @material-ui/icons
+* @material-ui/lab
 * axios
 
 ## Additional Libraries

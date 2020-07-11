@@ -1,15 +1,14 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import './navHeader.css';
 import {getPokemonByName} from "../../services/pokeApiHelper";
 import {AppContext} from "../../App";
+import AutoCompleteSearch from "./autoCompleteSearch";
+import pokemon from '../../searchListData';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -69,64 +68,51 @@ const useStyles = makeStyles((theme) => ({
 export default function SearchAppBar() {
 	const classes = useStyles();
 	const context = useContext(AppContext);
-	const [searchInput, setSearchInput] = useState({
-		pokemon: ''
-	});
+	const options = ['Option 1', 'Option 2'];
+	const [value, setValue] = useState(options[0]);
+	const [inputValue, setInputValue] = useState('');
 
-	// Collect user input from search field
-	const handleSearchChange = e => {
-		const {name, value} = e.target;
-		setSearchInput({...searchInput, [name]: value});
-	};
-
-	const handleSubmitSearch = e => {
-		e.preventDefault();
-		getPokemonByName(searchInput.pokemon.toLowerCase()).then(res => {
-			if (res.status === 200) {
-				context.setPokemonId(res.data.id);
-				document.getElementById('error-response').innerHTML = "";
+	// search pokemon by name input through search bar
+	useEffect(() => {
+		const autoSearchOnMatchingName = () => {
+			if (pokemon.some(element => element.label === inputValue)) {
+				getPokemonByName(inputValue).then(res => {
+					if (res.status === 200) {
+						context.setPokemonId(res.data.id);
+					}
+				}).catch(e => {
+					return e;
+				});
 			} else {
-				document.getElementById('error-response').innerHTML = "Invalid Pokemon name";
+				// api GET with pokemon 100% user entered
+				if (pokemon.some(element => element.label === value)) {
+					getPokemonByName(value).then(res => {
+						if (res.status === 200) {
+							context.setPokemonId(res.data.id);
+						}
+					}).catch(e => {
+						return e;
+					});
+				}
 			}
-		}).catch(e => {
-			return e;
-		});
-	};
+		};
+		autoSearchOnMatchingName();
+	}, [value, inputValue]);
 
 	return (
 		<div className={classes.root}>
 			<AppBar position="fixed">
 				<Toolbar>
-					<IconButton
-						edge="start"
-						className={classes.menuButton}
-						color="inherit"
-						aria-label="open drawer"
-					>
-						<MenuIcon />
-					</IconButton>
 					<Typography className={classes.title} variant="h6" noWrap>
 						Who's That Pokedex!?
 					</Typography>
 					<div id={'search-container'}>
-						<form className={classes.search} onSubmit={handleSubmitSearch}>
+						<form className={classes.search}>
 							<div className={classes.searchIcon}>
 								<SearchIcon />
 							</div>
-							<InputBase
-								id={'search-input'}
-								placeholder="Search…"
-								classes={{
-									root: classes.inputRoot,
-									input: classes.inputInput,
-								}}
-								inputProps={{ 'aria-label': 'search' }}
-								name={'pokemon'}
-								value={searchInput.pokemon}
-								onChange={handleSearchChange}
-							/>
+							<AutoCompleteSearch setValue={setValue} setInputValue={setInputValue} pokemon={pokemon}/>
 						</form>
-						<div id={'error-response'}></div>
 					</div>
 				</Toolbar>
 			</AppBar>
